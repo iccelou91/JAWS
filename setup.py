@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='jaws-scraper',
-    version='0.1.0',
+    version='0.1.1',
     author='Louis Fogel',
     author_email='fogel@alexkarpinski.com',
     packages=['jaws',],

@@ -1,17 +1,7 @@
 #!/usr/bin/env python
-import HTMLParser
 from core import JAWSParser
 
-def clean_string(value):
-    try:
-        value = value.encode('utf-8')
-    except UnicodeError:
-        value = ''.join(i for i in value if ord(i)<128)
-        return value.encode('utf-8')
-    else:
-        # value was valid ASCII data
-        return value
-
+import HTMLParser
 class HTMLFormParser(HTMLParser.HTMLParser, JAWSParser):
     def __init__(self):
         # initialize the base class
@@ -40,9 +30,9 @@ class HTMLFormParser(HTMLParser.HTMLParser, JAWSParser):
         value = ''
         for attr_name, attr_value in attrs:
             if attr_name == 'value':
-                value = clean_string(attr_value)
+                value = attr_value
             elif attr_name == 'name':
-                name = clean_string(attr_value)
+                name = attr_value
         self.last_tag = tag
         self.last_tag_name = name
         self.current_tag_name = name
@@ -56,4 +46,12 @@ class HTMLFormParser(HTMLParser.HTMLParser, JAWSParser):
                 
     def handle_data(self, data):
         if self.last_tag == 'textarea':
-            self.data[self.last_tag_name]=clean_string(data)
+            self.data[self.last_tag_name]=data
+            
+class JSONParser(JAWSParser):
+    import json
+    def __init__(self, **decoder_args):
+        self.parser = json.JSONDecoder(**decoder_args)
+        
+    def parse_document(self, document):
+        return self.parser.decode(document)
