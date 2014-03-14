@@ -1,0 +1,7 @@
+#General Unwanted Stuff
+.venv
+*~
+*.swp
+
+#Python
+*.pyc
