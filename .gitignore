@@ -1,7 +1,9 @@
 #General Unwanted Stuff
 .venv
+dist
 *~
 *.swp
+MANIFEST
 
 #Python
 *.pyc

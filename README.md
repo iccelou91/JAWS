@@ -4,9 +4,11 @@ JAWS -- Just Another Web Scraper
 JAWS is a system for quickly designing web scrapers. It contains a framework for designing custom resources, parsers and outputs for entirely custom scrapers as well as a few implemenations for common use cases.
 
 # Dependenices
-JAWS is written in Python, for Python2. The dependencies are outlined in requirements.txt. The easiest way to install these dependencies is with pip, by running the following command:
+JAWS is written in Python, for Python2. The dependencies for the latest version are:
+* mechanize==0.2.5
+* requests==2.2.1
 
-        pip install -r requirements.txt
+JAWS can also be installed with easy_install or pip.
 
 # Components
 The core components of the JAWS framework can be found in core.py.
