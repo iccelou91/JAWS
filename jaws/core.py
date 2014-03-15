@@ -58,8 +58,16 @@ class Scraper(object):
         to each URI from the URI generator.
         '''
         for response in self.resource:
+            # Wait for the specified delay time
             time.sleep(self.delay)
-            yield self.parse_document(response.text)
+            # Get data from the parser
+            data = self.parse_document(response.text)
+            # Handle individual objects, even if parser returned list
+            if type(data) is list:
+                for obj in data:
+                    yield obj
+            else:
+                yield data
             
     def scrape_to_output(self):
         self.output.handle_data(self.scrape_data())

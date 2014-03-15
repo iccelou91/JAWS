@@ -27,7 +27,6 @@ The JAWSOutput class is the abstract class describing what to actually do with t
 
 # Future Work
 * Automatic Schema Detection
-* JSON parser
 * Examples for README
 * Better documentation in code
 * Python3 compatibility

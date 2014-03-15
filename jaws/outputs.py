@@ -30,6 +30,7 @@ class CSVOutput(JAWSOutput):
 
     def store_object(self, obj):
         cleaned_obj = dict()
+        print "storing object: {obj}".format(obj=obj)
         for key, value in dict(obj).items():
             cleaned_obj[key]=self.clean_string(value)
         self.writer.writerow(cleaned_obj)
