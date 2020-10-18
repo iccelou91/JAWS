@@ -13,6 +13,6 @@ setup(
     long_description=open('README.md').read(),
     install_requires=[
         "mechanize==0.2.5",
-        "requests==2.2.1",
+        "requests==2.20.0",
     ],
 )
