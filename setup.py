@@ -12,7 +12,7 @@ setup(
     description='Just Another Web Scraper.',
     long_description=open('README.md').read(),
     install_requires=[
-        "mechanize==0.2.5",
+        "mechanize==0.4.6",
         "requests==2.20.0",
     ],
 )
